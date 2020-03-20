@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <script src="javascripts/main.js"></script>
+        <title>Self-Healing Demo</title>
+    </head>
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3 text-primary">Kubernetes Self-Healing Demo</h1>
+                <p class="lead">Recursive vs Iterative Fibonacci Series on a server</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Fibonacci Calculator</h3>
+                </div>
+                <div class="col-sm-4">
+                    <p>Enter the nth index of the fibonacci series</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="n" value="0" />
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" onclick="getFibonacci()">Calculate!</button>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fibonacciOptions" id="inlineRadio1" value="recursive" checked>
+                        <label class="form-check-label" for="inlineRadio1">Recursive</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="fibonacciOptions" id="inlineRadio2" value="iterative">
+                        <label class="form-check-label" for="inlineRadio2">Iterative</label>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <h5>
+                                The nth number in the fibonacci series
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p id="nFibonacci">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h3 class="mt-2">Unlock the secrets of longevity</h3>
+                    <p>In 1967, computer-o-phile Jim Bean posed a challenge that could only be cracked by competent computer scientists. He locked away the secrets of longevity behind a code. Thankfully, we have given you (an ordinary person) the tools (above) to crack this code. Can you find the secret?</p>
+                    <p><em>Hint: The time complexity of recursive fibonacci is O(2<sup>n</sup>) and for iterative fibonacci it is O(n).</em></p>
+                </div>
+                <div class="col-sm-8">
+                    <p>What is the 8<sup>th</sup> number in the fibonacci series?</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="s1" />
+                </div>
+                <div class="col-sm-8">
+                    <p>What is the 12<sup>th</sup> number in the fibonacci series?</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="s2" />
+                </div>
+                <div class="col-sm-8">
+                    <p>What is the 4<sup>th</sup> number in the fibonacci series?</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="s3" />
+                </div>
+                <div class="col-sm-8">
+                    <p>What is the 34<sup>th</sup> number in the fibonacci series?</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="s4" />
+                </div>
+                <div class="col-sm-8">
+                    <p>What is the 99<sup>th</sup> number in the fibonacci series?</p>
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="s5" />
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-primary mt-2 w-100" type="button" onclick="checkAnswers()">Unlock Secrets!</button>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
