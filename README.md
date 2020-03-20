@@ -6,4 +6,5 @@ Please first perform the following command
 
 Followed by
 - npm start
+
 to run the application
