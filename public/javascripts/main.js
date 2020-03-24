@@ -1,3 +1,37 @@
+var restarts = 0;
+function serverHealth() {
+    setInterval(checkHealth, 1000);
+}
+function fetchWithTimeout(url, options, timeout = 1000) {
+    return Promise.race([
+        fetch(url, options),
+        new Promise((_, reject) => 
+            setTimeout(() => reject(new Error('timeout')), timeout)
+        )
+    ]);
+}
+function checkHealth() {
+    var healthURL = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/health';
+    let status = document.getElementById('serverStatus');
+    let noOfRestarts = document.getElementById('restarts');
+    fetchWithTimeout(healthURL, {})
+        .then(function(res) {
+            if(res.status == 200) {
+                if(status.className.localeCompare('text-danger') == 0) restarts++;
+                status.className = 'text-success';
+                status.innerHTML = 'Server is healthy ✔️';
+                noOfRestarts.innerHTML = ''+restarts;
+            }
+            else {
+                status.className = 'text-danger';
+                status.innerHTML = 'Server is down 🛑';
+            }
+        })
+        .catch(function(err) {
+            status.className = 'text-danger';
+                status.innerHTML = 'Server is down 🛑';
+        });
+}
 function checkAnswers() {
     let s1, s2, s3, s4, s5, correctCount = 0;
     s1 = document.getElementById('s1');

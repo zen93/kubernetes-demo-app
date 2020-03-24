@@ -10,7 +10,7 @@
         <title>Self-Healing Demo</title>
     </head>
 
-    <body>
+    <body onload="serverHealth()">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-3 text-primary">Kubernetes Self-Healing Demo</h1>
@@ -19,6 +19,23 @@
         </div>
         <div class="container">
             <div class="row">
+                <div class="col-12">
+                    <h3>Server Health</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Server Health</th>
+                                <th scope="col">Restarts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="serverStatus">Server is healthy ✔️</td>
+                                <td id="restarts">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="col-sm-12">
                     <h3>Fibonacci Calculator</h3>
                 </div>
