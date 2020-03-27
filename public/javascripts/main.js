@@ -3,12 +3,18 @@ function serverHealth() {
     setInterval(checkHealth, 1000);
 }
 function fetchWithTimeout(url, options, timeout = 1000) {
-    return Promise.race([
-        fetch(url, options),
-        new Promise((_, reject) => 
-            setTimeout(() => reject(new Error('timeout')), timeout)
-        )
-    ]);
+    let controller = new AbortController();
+    let signal = controller.signal;
+    let fetchPromise = fetch(url, {signal});
+    let timeoutId = setTimeout( () => controller.abort(), timeout);
+
+    return fetchPromise;
+    // return Promise.race([
+    //     fetch(url, options),
+    //     new Promise((_, reject) => 
+    //         setTimeout(() => reject(new Error('timeout')), timeout)
+    //     )
+    // ]);
 }
 function checkHealth() {
     var healthURL = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/health';
